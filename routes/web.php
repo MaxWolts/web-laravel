@@ -10,7 +10,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [PageController::class, 'index'])->name('home');
 Route::get('questions/{question}', [QuestionController::class, 'show'])->name('questions.show');
-Route::get('blogs/', [BlogController::class, 'index'])->name('blogs.index');
+Route::get('blogs/', [BlogController::class, 'index'])->name('blogs');
 
 Route::view('dashboard', 'dashboard')
     ->middleware(['auth', 'verified'])

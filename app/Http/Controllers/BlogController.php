@@ -13,7 +13,7 @@ class BlogController extends Controller
             ->latest()
             ->get();
 
-        return view('blogs.index', [
+        return view('pages.blogs', [
             'blogs' => $blogs
         ]);
     }
