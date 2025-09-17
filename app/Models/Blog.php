@@ -9,25 +9,26 @@ class Blog extends Model
 {
     /** @use HasFactory<\Database\Factories\BlogFactory> */
     use HasFactory;
-    // 🔗 Relación: un blog pertenece a un usuario
+
+    // Un blog pertenece a un usuario
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
-    // 🔗 Relación: un blog pertenece a una categoría
+    // Un blog pertenece a una categoría
     public function category()
     {
         return $this->belongsTo(Category::class);
     }
 
-    // 🔗 Relación: un blog puede tener muchos comentarios
+    // Un blog puede tener muchos comentarios (polimórficos)
     public function comments()
     {
-        return $this->hasMany(Comment::class);
+        return $this->morphMany(Comment::class, 'commentable');
     }
 
-    // 🔗 Relación: un blog puede tener muchos "me gusta" (hearts)
+    // Un blog puede tener muchos "me gusta" (hearts)
     public function hearts()
     {
         return $this->hasMany(Heart::class);

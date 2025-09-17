@@ -22,7 +22,7 @@
                 {{ Str::limit($blog->content, 150) }}
             </p>
 
-            <a href="*"
+            <a href="{{ route('blogs.show', $blog) }}"
                 class="text-indigo-600 text-sm font-semibold hover:underline mt-2 inline-block">
                 Leer más →
             </a>

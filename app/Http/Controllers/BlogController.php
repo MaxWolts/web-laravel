@@ -17,4 +17,9 @@ class BlogController extends Controller
             'blogs' => $blogs
         ]);
     }
+    public function show(Blog $blog)
+    {
+        $blog->load('category', 'user');
+        return view('blogs.show', ['blog' => $blog]);
+    }
 }
